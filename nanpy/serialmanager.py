@@ -64,15 +64,16 @@ class SerialManager(object):
 
     def open(self, device=None):
         '''open connection'''
-        if device:
-            self.device = device
+        #if device:
+        #    self.device = device
 
-        if not self.device:
-            ports = _auto_detect_serial_unix()
-            if not len(ports):
-                raise SerialManagerError("No port was set, and no port was found!")
-            self.device = ports[0]
-        log.debug('opening port:%s [%s baud]', self.device, self.baudrate)
+        #if not self.device:
+        #    ports = _auto_detect_serial_unix()
+        #    if not len(ports):
+        #        raise SerialManagerError("No port was set, and no port was found!")
+        #    self.device = ports[0]
+        #log.debug('opening port:%s [%s baud]', self.device, self.baudrate)
+        self.device = 'COM3'
         assert self.device
         self._serial = serial.Serial(self.device,
                                      self.baudrate,
