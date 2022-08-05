@@ -1,16 +1,24 @@
 from nanpy.arduinoboard import ArduinoObject
 from nanpy.arduinoboard import (arduinoobjectmethod, returns)
+#from nanpy.arduinoboard import setcomport
 
 class DallasTemperature(ArduinoObject):
     cfg_h_name = 'USE_DallasTemperature'
 
-    def __init__(self, pin, connection=None):
+    comportname = 'COM3'
+
+    def __init__(self, pin, comportname, connection=None):
         ArduinoObject.__init__(self, connection=connection)
         self.pin = pin
+        self.comportname = comportname
         self.id = self.call('new', pin)
 
     @arduinoobjectmethod
     def setResolution(self, bits):
+        pass
+
+    @arduinoobjectmethod
+    def setComPort(self, comPort):
         pass
 
     @returns(int)
@@ -52,4 +60,5 @@ class DallasTemperature(ArduinoObject):
     @classmethod
     def toFahrenheit(cls, value):
         return (value * 9/5) + 32
+
 

@@ -51,7 +51,9 @@ class NoneSerialManager(object):
 class SerialManager(object):
     _serial = None
 
-    def __init__(self, device=None,
+
+    def __init__(self,
+                 device=None,
                  baudrate=DEFAULT_BAUDRATE,
                  sleep_after_connect=2,
                  timeout=7,
@@ -61,6 +63,7 @@ class SerialManager(object):
         self.sleep_after_connect = sleep_after_connect
         self.timeout = timeout
         self.rtscts = rtscts
+        self.comPort = 'COM3'
 
     def open(self, device=None):
         '''open connection'''
@@ -73,7 +76,7 @@ class SerialManager(object):
         #        raise SerialManagerError("No port was set, and no port was found!")
         #    self.device = ports[0]
         #log.debug('opening port:%s [%s baud]', self.device, self.baudrate)
-        self.device = 'COM3'
+        self.device = self.comPort
         assert self.device
         self._serial = serial.Serial(self.device,
                                      self.baudrate,
