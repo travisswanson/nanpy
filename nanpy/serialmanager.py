@@ -53,6 +53,7 @@ class SerialManager(object):
 
 
     def __init__(self,
+                 comPort,
                  device=None,
                  baudrate=DEFAULT_BAUDRATE,
                  sleep_after_connect=2,
@@ -63,7 +64,7 @@ class SerialManager(object):
         self.sleep_after_connect = sleep_after_connect
         self.timeout = timeout
         self.rtscts = rtscts
-        self.comPort = 'COM3'
+        self.comPort = comPort
 
     def open(self, device=None):
         '''open connection'''

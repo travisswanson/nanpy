@@ -6,10 +6,9 @@ class DallasTemperature(ArduinoObject):
     cfg_h_name = 'USE_DallasTemperature'
 
 
-    def __init__(self, pin, comportname, connection):
+    def __init__(self, pin, connection):
         ArduinoObject.__init__(self, connection=connection)
         self.pin = pin
-        self.comportname = comportname
         self.id = self.call('new', pin)
 
     @arduinoobjectmethod
