@@ -53,7 +53,7 @@ class SerialManager(object):
 
 
     def __init__(self,
-                 comPort,
+                 comPort=None,
                  device=None,
                  baudrate=DEFAULT_BAUDRATE,
                  sleep_after_connect=2,
